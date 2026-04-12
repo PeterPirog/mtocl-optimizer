@@ -3,9 +3,9 @@ from .objectives import BaseObjectiveFunction, DataFittingObjective, FunctionWra
 from .optimizer import MTOCLOptimizer
 
 __all__ = [
-    "MTOCLOptimizer",
     "MTOCLConfig",
+    "BaseObjectiveFunction",
     "FunctionWrapper",
     "DataFittingObjective",
-    "BaseObjectiveFunction",
+    "MTOCLOptimizer",
 ]

@@ -1,16 +1,27 @@
 # MTO-CL Optimizer
 
-`mtocl-optimizer` is a Python implementation of **Mother Tree Optimization with Climate Change (MTO-CL)**, a global optimization metaheuristic inspired by the symbiotic resource-sharing behavior between **Douglas Fir trees** and **mycorrhizal fungi networks**.
+[![PyPI version](https://img.shields.io/pypi/v/mtocl-optimizer.svg)](https://pypi.org/project/mtocl-optimizer/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python versions](https://img.shields.io/pypi/pyversions/mtocl-optimizer.svg)](https://pypi.org/project/mtocl-optimizer/)
 
-The optimizer combines a fixed-topology, vectorized population update strategy with periodic climate-change perturbations (elimination and distortion) to preserve exploration while improving convergence behavior.
+A Python implementation of the **Mother Tree Optimization with Climate Change (MTO-CL)** global optimization algorithm.
 
-## Features
+MTO-CL is inspired by ecological intelligence in forest systems, particularly the symbiotic relationship between **Douglas Fir trees** and **mycorrhizal fungi networks**, where nutrients and signals are exchanged to support collective survival and adaptation.
 
-- Vectorized MTO-CL implementation using NumPy
-- Fixed-Offspring population topology
-- Climate Change mechanism (Elimination + Distortion)
-- Objective-function wrappers for generic optimization workflows
-- CSV export of final population and custom metrics
+## Algorithm Details
+
+This package implements the **Fixed-Offspring (FO) topology** of MTO:
+
+- **Feeder candidate solutions** transfer nutrients/signals to non-feeder solutions.
+- Population roles include the Top Mother Tree (TMT), FPCT, FCT, and LPCT groups.
+- The optimization step is fully vectorized via FO masks and weight matrices.
+
+It also includes the **Climate Change** mechanism with two phases:
+
+1. **Elimination**: weak agents are replaced by new random agents sampled in-domain.
+2. **Distortion**: surviving agents are perturbed to diversify search and avoid stagnation.
+
+Together, these mechanisms balance **exploitation** and **exploration**, helping reduce premature convergence.
 
 ## Installation
 
@@ -18,12 +29,12 @@ The optimizer combines a fixed-topology, vectorized population update strategy w
 pip install mtocl-optimizer
 ```
 
-## Quick Start
+## Usage Example
 
 ```python
 import numpy as np
 
-from mtocl_optimizer import FunctionWrapper, MTOCLConfig, MTOCLOptimizer
+from mtocl_optimizer import MTOCLConfig, MTOCLOptimizer, FunctionWrapper
 
 
 def sphere(x: np.ndarray) -> float:
@@ -37,22 +48,21 @@ config = MTOCLConfig(
     population_size=40,
     max_iterations=300,
     climate_change_freq=25,
+    export_csv="result.csv",
     random_seed=42,
 )
 
 optimizer = MTOCLOptimizer(config=config, objective=objective)
 result = optimizer.optimize(top_n=3)
 
-print("Best fitness:", result["best_fitness"])
+print("Best loss:", result["best_loss"])
 print("Best parameters:", result["best_parameters"])
 ```
 
-## Package Layout
+## Acknowledgments / References
 
-```text
-src/mtocl_optimizer/
-├── __init__.py
-├── config.py
-├── objectives.py
-└── optimizer.py
-```
+- Korani, W. (2021). *Mother Tree Optimization for Solving Continuous and Discrete Optimization Problems*. University of Regina.
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.

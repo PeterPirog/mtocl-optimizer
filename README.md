@@ -23,17 +23,6 @@ It also includes the **Climate Change** mechanism with two phases:
 
 Together, these mechanisms balance **exploitation** and **exploration**, helping reduce premature convergence.
 
-## Loss Functions for High-Dynamic-Range MSM Extraction
-
-The `source/losses.py` module provides reusable, numerically stable losses for extracting physical parameters from MSM diode U(I) measurements across large dynamic ranges.
-
-Current functions include:
-
-- `asinh_mse`: Mean-squared error in inverse hyperbolic sine space.
-- `asinh_wls_residuals`: Weighted residual vector in inverse hyperbolic sine space.
-
-These transformations improve robustness when current/voltage magnitudes span many orders of magnitude.
-
 ## Installation
 
 ```bash
@@ -70,25 +59,9 @@ print("Best loss:", result["best_loss"])
 print("Best parameters:", result["best_parameters"])
 ```
 
-## Running the Examples
-
-The repository includes runnable scripts in `examples/`.
-
-From the repository root:
-
-```bash
-PYTHONPATH=src:. python examples/example1.py
-```
-
-The script demonstrates MSM-style parameter extraction using MTO-CL and `asinh_mse` from `source.losses`.
-
-## Acknowledgments
+## Acknowledgments / References
 
 - Korani, W. (2021). *Mother Tree Optimization for Solving Continuous and Discrete Optimization Problems*. University of Regina.
-
-## References
-
-- Wael Korani - Mother Tree Optimization for Solving Continuous and Discrete Optimization Problems: https://uregina.scholaris.ca/server/api/core/bitstreams/72725429-5919-4075-a216-6a54da70a244/content
 
 ## License
 

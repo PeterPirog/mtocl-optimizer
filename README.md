@@ -191,8 +191,8 @@ pytest
 
 - Korani, W. (2021). *Mother Tree Optimization for Solving Continuous and
   Discrete Optimization Problems*. University of Regina.
-- Local copy used for algorithm details:
-  [`MTO-CL algorithm Korani_Wael_PhD_CS_Spring_2022.pdf`](MTO-CL%20algorithm%20Korani_Wael_PhD_CS_Spring_2022.pdf)
+- Full thesis (University of Regina repository):
+  <https://uregina.scholaris.ca/server/api/core/bitstreams/72725429-5919-4075-a216-6a54da70a244/content>
 
 ## License
 

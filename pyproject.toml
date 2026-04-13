@@ -34,9 +34,23 @@ Homepage = "https://github.com/your-org/mtocl-optimizer"
 Repository = "https://github.com/your-org/mtocl-optimizer"
 Issues = "https://github.com/your-org/mtocl-optimizer/issues"
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.6",
+]
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["mtocl_optimizer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"

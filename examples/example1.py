@@ -4,8 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from mtocl_optimizer import FunctionWrapper, MTOCLConfig, MTOCLOptimizer
-from source.losses import asinh_mse
+from mtocl_optimizer import FunctionWrapper, MTOCLConfig, MTOCLOptimizer, asinh_mse
 
 ArrayFloat = np.ndarray
 
